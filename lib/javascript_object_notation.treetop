@@ -1,0 +1,9 @@
+grammar JavaScriptObjectNotation
+  rule json
+    "" {
+      def to_ruby_object
+        :nothing
+      end
+    }
+  end
+end
