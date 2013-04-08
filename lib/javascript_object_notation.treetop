@@ -5,7 +5,7 @@ grammar JavaScriptObjectNotation
   rule nothing
     "" {
       def to_hash
-        :nowt
+        :nothing
       end
     }
   end

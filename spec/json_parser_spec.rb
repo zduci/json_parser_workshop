@@ -16,7 +16,6 @@ describe JavaScriptObjectNotationParser do
 
   describe "getting started" do
     example do
-      pending
       expect('').to parse_as(:nothing)
     end
   end
