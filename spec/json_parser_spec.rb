@@ -26,7 +26,6 @@ describe JavaScriptObjectNotationParser do
     end
 
     example do
-      pending
       # It's not important when you do this one,
       # it's just a sanity check
       expect('{   }').to parse_as({ })

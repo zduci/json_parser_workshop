@@ -14,10 +14,14 @@ grammar JavaScriptObjectNotation
   end
   
   rule empty
-    "{}" {
+    "{" blank "}" {
       def to_hash
         {}
       end
     }
+  end
+
+  rule blank
+    " "*
   end
 end
