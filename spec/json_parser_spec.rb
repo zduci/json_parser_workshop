@@ -76,12 +76,14 @@ describe JavaScriptObjectNotationParser do
     example do
       pending
       expect(
-        '{ "a" : "b" , "c" : "d" }'
+        '{ "a" : "b" , "c" : "d" , "e" : "f" }'
       ).to parse_as(
-        { "a" => "b", "c" => "d" }
+        { "a" => "b", "c" => "d", "e" => "f" }
       )
     end
+  end
 
+  describe "objects as values" do
     example do
       pending
       expect(
