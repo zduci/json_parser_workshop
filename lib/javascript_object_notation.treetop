@@ -1,11 +1,22 @@
 grammar JavaScriptObjectNotation
-  # Your solution goes here
+  rule maybe_a_hash
+    empty
+    /
+    nothing
+  end
 
-  # Just scribbling on the blank page
   rule nothing
     "" {
       def to_hash
         :nothing
+      end
+    }
+  end
+  
+  rule empty
+    "{}" {
+      def to_hash
+        {}
       end
     }
   end

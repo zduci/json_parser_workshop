@@ -22,7 +22,6 @@ describe JavaScriptObjectNotationParser do
 
   describe "an empty object" do
     example do
-      pending
       expect('{}').to parse_as({ })
     end
 
