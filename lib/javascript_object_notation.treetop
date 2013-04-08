@@ -1,8 +1,11 @@
 grammar JavaScriptObjectNotation
-  rule json
+  # Your solution goes here
+
+  # Just scribbling on the blank page
+  rule nothing
     "" {
-      def to_ruby_object
-        :nothing
+      def to_hash
+        :nowt
       end
     }
   end
