@@ -54,7 +54,6 @@ describe JavaScriptObjectNotationParser do
     end
 
     example do
-      pending
       expect('{ "a" : 123 }').to parse_as({ "a" => 123 })
     end
 
