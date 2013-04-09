@@ -36,9 +36,13 @@ grammar JavaScriptObjectNotation
   end
 
   rule integer
-    [0-9]+ {
+    minus:[-]? number:[0-9]+ {
         def to_hash
-            text_value.to_i
+          if minus.text_value == '-'
+              0 - number.text_value.to_i
+          else
+              number.text_value.to_i
+          end
         end
     }
   end
