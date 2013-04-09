@@ -22,7 +22,7 @@ grammar JavaScriptObjectNotation
   end
 
   rule string
-    '"' value:[a-z] '"' {
+    '"' value:[a-z0-9_A-Z]+ '"' {
       def to_hash
         value.text_value
       end

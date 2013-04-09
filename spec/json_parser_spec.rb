@@ -40,7 +40,6 @@ describe JavaScriptObjectNotationParser do
     end
 
     example do
-      pending
       expect('{ "AbC_1dE" : "aBc_2De" }').to parse_as({ "AbC_1dE" => "aBc_2De" })
     end
 
