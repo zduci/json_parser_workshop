@@ -36,7 +36,6 @@ describe JavaScriptObjectNotationParser do
 
   describe "string values" do
     example do
-      pending
       expect('{ "a" : "b" }').to parse_as({ "a" => "b" })
     end
 

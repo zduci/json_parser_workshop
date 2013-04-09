@@ -1,22 +1,38 @@
 grammar JavaScriptObjectNotation
   rule maybe_a_hash
-    empty
+    hash
     /
     nothing
+  end
+
+  rule hash
+    "{" blank element:hash_element? blank "}" {
+      def to_hash
+        element.to_hash
+      end
+    }
+  end
+
+  rule hash_element
+    key:string blank ':' blank value:string {
+      def to_hash
+        { key.to_hash => value.to_hash }
+      end
+    }
+  end
+
+  rule string
+    '"' value:[a-z] '"' {
+      def to_hash
+        value.text_value
+      end
+    }
   end
 
   rule nothing
     "" {
       def to_hash
         :nothing
-      end
-    }
-  end
-  
-  rule empty
-    "{" blank "}" {
-      def to_hash
-        {}
       end
     }
   end
