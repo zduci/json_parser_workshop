@@ -50,7 +50,6 @@ describe JavaScriptObjectNotationParser do
 
   describe "integer values" do
     example do
-      pending
       expect('{ "a" : 1 }').to parse_as({ "a" => 1 })
     end
 

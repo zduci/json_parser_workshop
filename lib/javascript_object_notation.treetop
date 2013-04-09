@@ -14,11 +14,17 @@ grammar JavaScriptObjectNotation
   end
 
   rule hash_element
-    key:string blank ':' blank value:string {
+    key:string_or_integer blank ':' blank value:string_or_integer {
       def to_hash
         { key.to_hash => value.to_hash }
       end
     }
+  end
+
+  rule string_or_integer
+    string
+    /
+    integer
   end
 
   rule string
@@ -26,6 +32,14 @@ grammar JavaScriptObjectNotation
       def to_hash
         value.text_value
       end
+    }
+  end
+
+  rule integer
+    [0-9] {
+        def to_hash
+            text_value.to_i
+        end
     }
   end
 
