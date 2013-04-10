@@ -6,22 +6,22 @@ grammar JavaScriptObjectNotation
   end
 
   rule hash
-    "{" blank element:hash_elements? blank "}" {
+    "{" blank pairs:hash_pairs? blank "}" {
       def to_hash
-        element.to_hash
+        pairs.to_hash
       end
     }
   end
 
-  rule hash_elements
-    first:hash_element rest:(blank "," blank next:hash_element)* {
+  rule hash_pairs
+    first:hash_pair rest:(blank "," blank next:hash_pair)* {
       def to_hash
         first.to_hash.merge(rest.elements.inject({}){ |result, element| result = result.merge(element.next.to_hash) })
       end
     }
   end
 
-  rule hash_element
+  rule hash_pair
     key:string_or_integer blank ':' blank value:string_or_integer {
       def to_hash
         { key.to_hash => value.to_hash }
