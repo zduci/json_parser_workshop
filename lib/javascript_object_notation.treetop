@@ -42,12 +42,12 @@ grammar JavaScriptObjectNotation
   end
 
   rule array
-    '[' blank int:integer? blank ']' {
+    '[' blank item:string_or_integer? blank ']' {
       def to_hash
-        if int.text_value == ""
+        if item.text_value == ""
           []
         else
-          [ int.to_hash ]
+          [ item.to_hash ]
         end
       end
     }
