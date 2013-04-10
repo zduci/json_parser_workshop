@@ -42,13 +42,21 @@ grammar JavaScriptObjectNotation
   end
 
   rule array
-    '[' blank item:string_or_integer? blank ']' {
+    '[' blank items:list_items? blank ']' {
       def to_hash
-        if item.text_value == ""
+        if items.text_value == ""
           []
         else
-          [ item.to_hash ]
+          items.to_hash
         end
+      end
+    }
+  end
+
+  rule list_items
+    first:string_or_integer rest:(blank ',' blank next:string_or_integer)* {
+      def to_hash
+        [first.to_hash] + rest.elements.map { |item| item.next.to_hash }
       end
     }
   end
