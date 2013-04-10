@@ -41,6 +41,18 @@ grammar JavaScriptObjectNotation
     string_or_integer
   end
 
+  rule array
+    '[' blank int:integer? blank ']' {
+      def to_hash
+        if int.text_value == ""
+          []
+        else
+          [ int.to_hash ]
+        end
+      end
+    }
+  end
+
   rule string_or_integer
     string
     /
@@ -64,14 +76,6 @@ grammar JavaScriptObjectNotation
               number.text_value.to_i
           end
         end
-    }
-  end
-
-  rule array
-    "[]" {
-      def to_hash
-        []
-      end
     }
   end
 

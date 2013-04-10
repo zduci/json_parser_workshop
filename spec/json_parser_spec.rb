@@ -90,7 +90,6 @@ describe JavaScriptObjectNotationParser do
     end
 
     example do
-      pending
       expect('{ "a" : [1] }').to parse_as({ "a" => [1] })
     end
 
