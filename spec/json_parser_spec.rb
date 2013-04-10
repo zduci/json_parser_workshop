@@ -65,7 +65,6 @@ describe JavaScriptObjectNotationParser do
   # Now it gets harder
   describe "multiple member pairs" do
     example do
-      pending
       expect(
         '{ "a" : "b" , "c" : "d" , "e" : "f" }'
       ).to parse_as(

@@ -6,9 +6,17 @@ grammar JavaScriptObjectNotation
   end
 
   rule hash
-    "{" blank element:hash_element? blank "}" {
+    "{" blank element:hash_elements? blank "}" {
       def to_hash
         element.to_hash
+      end
+    }
+  end
+
+  rule hash_elements
+    first:hash_element rest:(blank "," blank next:hash_element)* {
+      def to_hash
+        first.to_hash.merge(rest.elements.inject({}){ |result, element| result = result.merge(element.next.to_hash) })
       end
     }
   end
