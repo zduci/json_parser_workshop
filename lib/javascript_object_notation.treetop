@@ -36,6 +36,8 @@ grammar JavaScriptObjectNotation
   rule value
     hash
     /
+    array
+    /
     string_or_integer
   end
 
@@ -62,6 +64,14 @@ grammar JavaScriptObjectNotation
               number.text_value.to_i
           end
         end
+    }
+  end
+
+  rule array
+    "[]" {
+      def to_hash
+        []
+      end
     }
   end
 

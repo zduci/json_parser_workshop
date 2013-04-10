@@ -86,7 +86,6 @@ describe JavaScriptObjectNotationParser do
   # Serious extra credit!
   describe "arrays" do
     example do
-      pending
       expect('{ "a" : [] }').to parse_as({ "a" => [ ] })
     end
 
