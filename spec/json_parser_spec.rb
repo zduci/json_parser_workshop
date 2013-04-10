@@ -75,7 +75,6 @@ describe JavaScriptObjectNotationParser do
 
   describe "objects as values" do
     example do
-      pending
       expect(
         '{ "a" : { "x" : "y"} }'
       ).to parse_as(

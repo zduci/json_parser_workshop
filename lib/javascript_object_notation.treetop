@@ -22,11 +22,21 @@ grammar JavaScriptObjectNotation
   end
 
   rule hash_pair
-    key:string_or_integer blank ':' blank value:string_or_integer {
+    key:key blank ':' blank value:value {
       def to_hash
         { key.to_hash => value.to_hash }
       end
     }
+  end
+
+  rule key
+    string_or_integer
+  end
+
+  rule value
+    hash
+    /
+    string_or_integer
   end
 
   rule string_or_integer
