@@ -8,7 +8,11 @@ grammar JavaScriptObjectNotation
   rule hash
     "{" blank pairs:hash_pairs? blank "}" {
       def to_hash
-        pairs.to_hash
+        if pairs.text_value == ""
+          {}
+        else
+          pairs.to_hash
+        end
       end
     }
   end

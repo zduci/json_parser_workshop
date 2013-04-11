@@ -4,9 +4,9 @@ Treetop.load(File.dirname(__FILE__) + '/javascript_object_notation.treetop')
 class ::Treetop::Runtime::SyntaxNode
   # Convenience method for making Treetop's incidental SyntaxNodes merge
   # You may find this helpful....
-   def to_hash
-     { }
-   end
+  # def to_hash
+  #   { }
+  # end
 
   # Convenience method for making Treetop's incidental SyntaxNodes add to arrays
   # You may find this useful if you tackle arrays
