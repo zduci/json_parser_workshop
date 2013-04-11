@@ -54,11 +54,17 @@ grammar JavaScriptObjectNotation
   end
 
   rule list_items
-    first:string_or_integer rest:(blank ',' blank next:string_or_integer)* {
+    first:list_item rest:(blank ',' blank next:list_item)* {
       def to_hash
         [first.to_hash] + rest.elements.map { |item| item.next.to_hash }
       end
     }
+  end
+
+  rule list_item
+    hash
+    /
+    string_or_integer
   end
 
   rule string_or_integer
